@@ -29,12 +29,17 @@
         private void InitializeComponent()
         {
             this.statusBar = new System.Windows.Forms.StatusStrip();
+            this.statusBarLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseConnectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnShowAll = new System.Windows.Forms.Button();
             this.tabCreate = new System.Windows.Forms.TabPage();
-            this.tabControl = new System.Windows.Forms.TabControl();
+            this.toDate = new System.Windows.Forms.DateTimePicker();
+            this.lblTo = new System.Windows.Forms.Label();
+            this.fromDate = new System.Windows.Forms.DateTimePicker();
+            this.lblFrom = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.tbDestination = new System.Windows.Forms.TextBox();
@@ -43,11 +48,8 @@
             this.lblPurpose = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
-            this.btnShowAll = new System.Windows.Forms.Button();
-            this.toDate = new System.Windows.Forms.DateTimePicker();
-            this.lblTo = new System.Windows.Forms.Label();
-            this.fromDate = new System.Windows.Forms.DateTimePicker();
-            this.lblFrom = new System.Windows.Forms.Label();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.statusBar.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabCreate.SuspendLayout();
@@ -56,11 +58,18 @@
             // 
             // statusBar
             // 
+            this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusBarLabel});
             this.statusBar.Location = new System.Drawing.Point(0, 325);
             this.statusBar.Name = "statusBar";
             this.statusBar.Size = new System.Drawing.Size(334, 22);
             this.statusBar.TabIndex = 0;
             this.statusBar.Text = "Teeext";
+            // 
+            // statusBarLabel
+            // 
+            this.statusBarLabel.Name = "statusBarLabel";
+            this.statusBarLabel.Size = new System.Drawing.Size(0, 17);
             // 
             // menuStrip1
             // 
@@ -85,6 +94,7 @@
             this.databaseConnectionToolStripMenuItem.Name = "databaseConnectionToolStripMenuItem";
             this.databaseConnectionToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.databaseConnectionToolStripMenuItem.Text = "Database Connection";
+            this.databaseConnectionToolStripMenuItem.Click += new System.EventHandler(this.DatabaseConnectionToolStripMenuItem_Click);
             // 
             // tabPage2
             // 
@@ -92,9 +102,18 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(327, 295);
+            this.tabPage2.Size = new System.Drawing.Size(327, 276);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "All Trips";
+            // 
+            // btnShowAll
+            // 
+            this.btnShowAll.Location = new System.Drawing.Point(81, 247);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(145, 23);
+            this.btnShowAll.TabIndex = 14;
+            this.btnShowAll.Text = "Show All Trips";
+            this.btnShowAll.UseVisualStyleBackColor = true;
             // 
             // tabCreate
             // 
@@ -118,6 +137,104 @@
             this.tabCreate.Text = "Create Trip";
             this.tabCreate.UseVisualStyleBackColor = true;
             // 
+            // toDate
+            // 
+            this.toDate.Location = new System.Drawing.Point(8, 197);
+            this.toDate.Name = "toDate";
+            this.toDate.Size = new System.Drawing.Size(301, 20);
+            this.toDate.TabIndex = 9;
+            // 
+            // lblTo
+            // 
+            this.lblTo.AutoSize = true;
+            this.lblTo.Location = new System.Drawing.Point(8, 181);
+            this.lblTo.Name = "lblTo";
+            this.lblTo.Size = new System.Drawing.Size(23, 13);
+            this.lblTo.TabIndex = 8;
+            this.lblTo.Text = "To:";
+            // 
+            // fromDate
+            // 
+            this.fromDate.Location = new System.Drawing.Point(8, 158);
+            this.fromDate.Name = "fromDate";
+            this.fromDate.Size = new System.Drawing.Size(301, 20);
+            this.fromDate.TabIndex = 7;
+            // 
+            // lblFrom
+            // 
+            this.lblFrom.AutoSize = true;
+            this.lblFrom.Location = new System.Drawing.Point(8, 142);
+            this.lblFrom.Name = "lblFrom";
+            this.lblFrom.Size = new System.Drawing.Size(33, 13);
+            this.lblFrom.TabIndex = 6;
+            this.lblFrom.Text = "From:";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(234, 236);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 11;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(8, 236);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 10;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            // 
+            // tbDestination
+            // 
+            this.tbDestination.Location = new System.Drawing.Point(8, 119);
+            this.tbDestination.Name = "tbDestination";
+            this.tbDestination.Size = new System.Drawing.Size(301, 20);
+            this.tbDestination.TabIndex = 5;
+            // 
+            // lblDestination
+            // 
+            this.lblDestination.AutoSize = true;
+            this.lblDestination.Location = new System.Drawing.Point(8, 103);
+            this.lblDestination.Name = "lblDestination";
+            this.lblDestination.Size = new System.Drawing.Size(63, 13);
+            this.lblDestination.TabIndex = 4;
+            this.lblDestination.Text = "Destination:";
+            // 
+            // tbPurpose
+            // 
+            this.tbPurpose.Location = new System.Drawing.Point(8, 80);
+            this.tbPurpose.Name = "tbPurpose";
+            this.tbPurpose.Size = new System.Drawing.Size(301, 20);
+            this.tbPurpose.TabIndex = 3;
+            // 
+            // lblPurpose
+            // 
+            this.lblPurpose.AutoSize = true;
+            this.lblPurpose.Location = new System.Drawing.Point(8, 64);
+            this.lblPurpose.Name = "lblPurpose";
+            this.lblPurpose.Size = new System.Drawing.Size(49, 13);
+            this.lblPurpose.TabIndex = 2;
+            this.lblPurpose.Text = "Purpose:";
+            // 
+            // tbName
+            // 
+            this.tbName.Location = new System.Drawing.Point(8, 41);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(301, 20);
+            this.tbName.TabIndex = 1;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(8, 25);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(38, 13);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Name:";
+            // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabCreate);
@@ -127,113 +244,6 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(335, 302);
             this.tabControl.TabIndex = 14;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(234, 236);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 22;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(8, 236);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 23;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            // 
-            // tbDestination
-            // 
-            this.tbDestination.Location = new System.Drawing.Point(8, 119);
-            this.tbDestination.Name = "tbDestination";
-            this.tbDestination.Size = new System.Drawing.Size(301, 20);
-            this.tbDestination.TabIndex = 17;
-            // 
-            // lblDestination
-            // 
-            this.lblDestination.AutoSize = true;
-            this.lblDestination.Location = new System.Drawing.Point(8, 103);
-            this.lblDestination.Name = "lblDestination";
-            this.lblDestination.Size = new System.Drawing.Size(63, 13);
-            this.lblDestination.TabIndex = 16;
-            this.lblDestination.Text = "Destination:";
-            // 
-            // tbPurpose
-            // 
-            this.tbPurpose.Location = new System.Drawing.Point(8, 80);
-            this.tbPurpose.Name = "tbPurpose";
-            this.tbPurpose.Size = new System.Drawing.Size(301, 20);
-            this.tbPurpose.TabIndex = 15;
-            // 
-            // lblPurpose
-            // 
-            this.lblPurpose.AutoSize = true;
-            this.lblPurpose.Location = new System.Drawing.Point(8, 64);
-            this.lblPurpose.Name = "lblPurpose";
-            this.lblPurpose.Size = new System.Drawing.Size(49, 13);
-            this.lblPurpose.TabIndex = 14;
-            this.lblPurpose.Text = "Purpose:";
-            // 
-            // tbName
-            // 
-            this.tbName.Location = new System.Drawing.Point(8, 41);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(301, 20);
-            this.tbName.TabIndex = 13;
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(8, 25);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(38, 13);
-            this.lblName.TabIndex = 12;
-            this.lblName.Text = "Name:";
-            // 
-            // btnShowAll
-            // 
-            this.btnShowAll.Location = new System.Drawing.Point(85, 266);
-            this.btnShowAll.Name = "btnShowAll";
-            this.btnShowAll.Size = new System.Drawing.Size(145, 23);
-            this.btnShowAll.TabIndex = 14;
-            this.btnShowAll.Text = "Show All Trips";
-            this.btnShowAll.UseVisualStyleBackColor = true;
-            // 
-            // toDate
-            // 
-            this.toDate.Location = new System.Drawing.Point(8, 197);
-            this.toDate.Name = "toDate";
-            this.toDate.Size = new System.Drawing.Size(301, 20);
-            this.toDate.TabIndex = 27;
-            // 
-            // lblTo
-            // 
-            this.lblTo.AutoSize = true;
-            this.lblTo.Location = new System.Drawing.Point(8, 181);
-            this.lblTo.Name = "lblTo";
-            this.lblTo.Size = new System.Drawing.Size(23, 13);
-            this.lblTo.TabIndex = 26;
-            this.lblTo.Text = "To:";
-            // 
-            // fromDate
-            // 
-            this.fromDate.Location = new System.Drawing.Point(8, 158);
-            this.fromDate.Name = "fromDate";
-            this.fromDate.Size = new System.Drawing.Size(301, 20);
-            this.fromDate.TabIndex = 25;
-            // 
-            // lblFrom
-            // 
-            this.lblFrom.AutoSize = true;
-            this.lblFrom.Location = new System.Drawing.Point(8, 142);
-            this.lblFrom.Name = "lblFrom";
-            this.lblFrom.Size = new System.Drawing.Size(33, 13);
-            this.lblFrom.TabIndex = 24;
-            this.lblFrom.Text = "From:";
             // 
             // MainScreen
             // 
@@ -246,6 +256,9 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainScreen";
             this.Text = "Trip Manager";
+            this.Load += new System.EventHandler(this.MainScreen_Load);
+            this.statusBar.ResumeLayout(false);
+            this.statusBar.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -279,6 +292,7 @@
         private System.Windows.Forms.Label lblPurpose;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.ToolStripStatusLabel statusBarLabel;
     }
 }
 
