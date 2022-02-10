@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HW
@@ -26,6 +19,7 @@ namespace HW
             DBConnection.DBName = tbDB.Text;
             DBConnection.DBUser = tbDBUser.Text;
             DBConnection.DBPass = tbDBPsw.Text;
+            DBConnection.IntegratedSecurity = cbIS.Checked;
         }
     }
 }

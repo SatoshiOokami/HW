@@ -37,6 +37,7 @@
             this.tbDBPsw = new System.Windows.Forms.TextBox();
             this.lblDBPsw = new System.Windows.Forms.Label();
             this.btnSaveDBConn = new System.Windows.Forms.Button();
+            this.cbIS = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblDBServer
@@ -107,7 +108,7 @@
             // btnSaveDBConn
             // 
             this.btnSaveDBConn.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSaveDBConn.Location = new System.Drawing.Point(15, 148);
+            this.btnSaveDBConn.Location = new System.Drawing.Point(12, 167);
             this.btnSaveDBConn.Name = "btnSaveDBConn";
             this.btnSaveDBConn.Size = new System.Drawing.Size(192, 23);
             this.btnSaveDBConn.TabIndex = 8;
@@ -115,11 +116,22 @@
             this.btnSaveDBConn.UseVisualStyleBackColor = true;
             this.btnSaveDBConn.Click += new System.EventHandler(this.BtnSaveDBConn_Click);
             // 
+            // cbIS
+            // 
+            this.cbIS.AutoSize = true;
+            this.cbIS.Location = new System.Drawing.Point(15, 144);
+            this.cbIS.Name = "cbIS";
+            this.cbIS.Size = new System.Drawing.Size(115, 17);
+            this.cbIS.TabIndex = 9;
+            this.cbIS.Text = "Integrated Security";
+            this.cbIS.UseVisualStyleBackColor = true;
+            // 
             // DBConnectionDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(219, 202);
+            this.Controls.Add(this.cbIS);
             this.Controls.Add(this.btnSaveDBConn);
             this.Controls.Add(this.tbDBPsw);
             this.Controls.Add(this.lblDBPsw);
@@ -149,5 +161,6 @@
         private System.Windows.Forms.TextBox tbDBPsw;
         private System.Windows.Forms.Label lblDBPsw;
         private System.Windows.Forms.Button btnSaveDBConn;
+        private System.Windows.Forms.CheckBox cbIS;
     }
 }

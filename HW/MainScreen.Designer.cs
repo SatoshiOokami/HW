@@ -33,6 +33,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseConnectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.initializeDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnShowAll = new System.Windows.Forms.Button();
             this.tabCreate = new System.Windows.Forms.TabPage();
@@ -84,17 +87,40 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.databaseConnectionToolStripMenuItem});
+            this.databaseConnectionToolStripMenuItem,
+            this.initializeDatabaseToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.exitToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Text = "&Settings";
             // 
             // databaseConnectionToolStripMenuItem
             // 
             this.databaseConnectionToolStripMenuItem.Name = "databaseConnectionToolStripMenuItem";
             this.databaseConnectionToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.databaseConnectionToolStripMenuItem.Text = "Database Connection";
+            this.databaseConnectionToolStripMenuItem.Text = "Database &Connection";
             this.databaseConnectionToolStripMenuItem.Click += new System.EventHandler(this.DatabaseConnectionToolStripMenuItem_Click);
+            // 
+            // initializeDatabaseToolStripMenuItem
+            // 
+            this.initializeDatabaseToolStripMenuItem.Enabled = false;
+            this.initializeDatabaseToolStripMenuItem.Name = "initializeDatabaseToolStripMenuItem";
+            this.initializeDatabaseToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.initializeDatabaseToolStripMenuItem.Text = "&Initialize Database";
+            this.initializeDatabaseToolStripMenuItem.Click += new System.EventHandler(this.InitializeDatabaseToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(184, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.exitToolStripMenuItem.Text = "&Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // tabPage2
             // 
@@ -177,6 +203,7 @@
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // btnClear
             // 
@@ -186,6 +213,7 @@
             this.btnClear.TabIndex = 10;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
             // tbDestination
             // 
@@ -293,6 +321,9 @@
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.ToolStripStatusLabel statusBarLabel;
+        private System.Windows.Forms.ToolStripMenuItem initializeDatabaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 
