@@ -71,7 +71,7 @@ namespace HW
                 {
                     connection.Open();
                     var query = $"IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Trip') " +
-                        $"CREATE TABLE Trip (ID int, Employee varchar(MAX), Purpose varchar(MAX), Destination varchar(MAX), FromDate datetime, ToDate datetime)";
+                        $"CREATE TABLE Trip (ID int IDENTITY(1,1) PRIMARY KEY, Employee varchar(MAX), Purpose varchar(MAX), Destination varchar(MAX), FromDate datetime, ToDate datetime, RecordDate datetime)";
                     var cmd = new SqlCommand(query, connection);
                     cmd.ExecuteNonQuery();
                     _connectionReady = true;
@@ -132,7 +132,31 @@ namespace HW
         /// </summary>
         private void SaveForm()
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var connection = new SqlConnection(ConnectionString))
+                {
+                    connection.Open();
+                    var query = $"INSERT INTO Trip (Employee, Purpose, Destination, FromDate, ToDate, RecordDate)" +
+                                $"VALUES (@emp, @purp, @dest, @from, @to, @record)";
+                    var cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@emp", tbName.Text);
+                    cmd.Parameters.AddWithValue("@purp", tbPurpose.Text);
+                    cmd.Parameters.AddWithValue("@dest", tbDestination.Text);
+                    cmd.Parameters.AddWithValue("@from", fromDate.Value.Date);
+                    cmd.Parameters.AddWithValue("@to", toDate.Value.Date);
+                    cmd.Parameters.AddWithValue("@record", DateTime.Now);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                //Status bar reports successful creation
+                ReportStatus(Color.Lime, "Record successfully saved.");
+            }
+            catch (Exception ex)
+            {
+                //Status bar reports unsuccessful table creation
+                ReportStatus(Color.Red, "Unable to save record.");
+            }
         }
     }
 }
