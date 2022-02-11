@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace HW
@@ -11,12 +12,14 @@ namespace HW
         public DBConnection DBConn { get; set; }
         public string ConnectionString { get; set; }
         private bool _connectionReady { get; set; }
+        public Dictionary<int, SortDirectionEnum> ColumnsSort { get; set; }
 
         public MainScreen()
         {
             DBConn = new DBConnection();
             ConnectionString = string.Empty;
             _connectionReady = false;
+            ColumnsSort = new Dictionary<int, SortDirectionEnum>();
             InitializeComponent();
         }
 
@@ -210,11 +213,35 @@ namespace HW
 
                 //filling the grid with data from the database using the created list
                 dataGridViewTrips.DataSource = trips;
+
+                foreach (DataGridViewColumn column in dataGridViewTrips.Columns)
+                {
+                    column.SortMode = DataGridViewColumnSortMode.Programmatic;
+                    ColumnsSort.Add(column.Index, SortDirectionEnum.Unsorted);
+                }
             }
             catch (Exception ex)
             {
                 //Status bar reports unsuccessful select
                 ReportStatus(Color.Red, "Unable to get records.");
+            }
+        }
+
+        //sorting
+        private void DataGridViewTrips_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var trips = (List<Trip>)dataGridViewTrips.DataSource;
+            var index = e.ColumnIndex;
+
+            if (ColumnsSort[index] == SortDirectionEnum.Unsorted || ColumnsSort[index] == SortDirectionEnum.Descending)
+            {
+                dataGridViewTrips.DataSource = trips.OrderBy(x => x.GetType().GetProperty(dataGridViewTrips.Columns[index].DataPropertyName).GetValue(x, null)).ToList();
+                ColumnsSort[index] = SortDirectionEnum.Ascending;
+            }
+            else
+            {
+                dataGridViewTrips.DataSource = trips.OrderByDescending(x => x.GetType().GetProperty(dataGridViewTrips.Columns[index].DataPropertyName).GetValue(x, null)).ToList();
+                ColumnsSort[index] = SortDirectionEnum.Descending;
             }
         }
     }

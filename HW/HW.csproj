@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SortDirectionEnum.cs" />
     <Compile Include="Trip.cs" />
     <Compile Include="TripStatusEnum.cs" />
     <EmbeddedResource Include="DBConnectionDialog.resx">

@@ -145,6 +145,7 @@
             this.dataGridViewTrips.ReadOnly = true;
             this.dataGridViewTrips.Size = new System.Drawing.Size(317, 234);
             this.dataGridViewTrips.TabIndex = 15;
+            this.dataGridViewTrips.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewTrips_ColumnHeaderMouseClick);
             // 
             // btnShowAll
             // 
