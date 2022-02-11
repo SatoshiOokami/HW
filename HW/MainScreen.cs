@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
@@ -116,6 +117,18 @@ namespace HW
             fromDate.Value = toDate.Value = DateTime.Now;
         }
 
+        private void BtnShowAll_Click(object sender, EventArgs e)
+        {
+            if (_connectionReady)
+            {
+                ShowAllTrips();
+            }
+            else
+            {
+                ReportStatus(Color.Red, "Unable to get data from the source.");
+            }
+        }
+
         /// <summary>
         /// Reporting status to the status bar
         /// </summary>
@@ -154,8 +167,50 @@ namespace HW
             }
             catch (Exception ex)
             {
-                //Status bar reports unsuccessful table creation
+                //Status bar reports unsuccessful record creation
                 ReportStatus(Color.Red, "Unable to save record.");
+            }
+        }
+
+        private void ShowAllTrips()
+        {
+            try
+            {
+                List<Trip> trips = new List<Trip>();
+                using (var connection = new SqlConnection(ConnectionString))
+                {
+                    //reading rows from the database
+                    connection.Open();
+                    var query = $"SELECT * FROM Trip";
+                    var cmd = new SqlCommand(query, connection);
+                    cmd.ExecuteNonQuery();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            trips.Add(new Trip
+                            {
+                                TripID = reader["ID"] != null ? int.Parse(reader["ID"].ToString()) : -1,
+                                Employee = reader["Employee"]?.ToString(),
+                                Purpose = reader["Purpose"]?.ToString(),
+                                Destination = reader["Destination"]?.ToString(),
+                                FromDate = !reader.IsDBNull(reader.GetOrdinal("FromDate")) ? DateTime.Parse(reader["FromDate"].ToString()) : new DateTime(1900, 1, 1),
+                                ToDate = !reader.IsDBNull(reader.GetOrdinal("ToDate")) ? DateTime.Parse(reader["ToDate"].ToString()) : new DateTime(1900, 1, 1),
+                                RecordDate = !reader.IsDBNull(reader.GetOrdinal("RecordDate")) ? DateTime.Parse(reader["RecordDate"].ToString()) : new DateTime(1900, 1, 1),
+                            });
+                        }
+                    }
+                    connection.Close();
+                }
+
+                //filling the grid with data from the database using the created list
+                dataGridViewTrips.DataSource = trips;
+            }
+            catch (Exception ex)
+            {
+                //Status bar reports unsuccessful select
+                ReportStatus(Color.Red, "Unable to get records.");
             }
         }
     }

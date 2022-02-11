@@ -37,6 +37,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridViewTrips = new System.Windows.Forms.DataGridView();
             this.btnShowAll = new System.Windows.Forms.Button();
             this.tabCreate = new System.Windows.Forms.TabPage();
             this.toDate = new System.Windows.Forms.DateTimePicker();
@@ -55,6 +56,7 @@
             this.statusBar.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTrips)).BeginInit();
             this.tabCreate.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.SuspendLayout();
@@ -124,6 +126,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dataGridViewTrips);
             this.tabPage2.Controls.Add(this.btnShowAll);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -131,6 +134,17 @@
             this.tabPage2.Size = new System.Drawing.Size(327, 276);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "All Trips";
+            // 
+            // dataGridViewTrips
+            // 
+            this.dataGridViewTrips.AllowUserToAddRows = false;
+            this.dataGridViewTrips.AllowUserToDeleteRows = false;
+            this.dataGridViewTrips.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTrips.Location = new System.Drawing.Point(7, 7);
+            this.dataGridViewTrips.Name = "dataGridViewTrips";
+            this.dataGridViewTrips.ReadOnly = true;
+            this.dataGridViewTrips.Size = new System.Drawing.Size(317, 234);
+            this.dataGridViewTrips.TabIndex = 15;
             // 
             // btnShowAll
             // 
@@ -140,6 +154,7 @@
             this.btnShowAll.TabIndex = 14;
             this.btnShowAll.Text = "Show All Trips";
             this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.BtnShowAll_Click);
             // 
             // tabCreate
             // 
@@ -291,6 +306,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTrips)).EndInit();
             this.tabCreate.ResumeLayout(false);
             this.tabCreate.PerformLayout();
             this.tabControl.ResumeLayout(false);
@@ -325,6 +341,7 @@
         private System.Windows.Forms.ToolStripMenuItem initializeDatabaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridViewTrips;
     }
 }
 

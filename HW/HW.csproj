@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Trip.cs" />
     <EmbeddedResource Include="DBConnectionDialog.resx">
       <DependentUpon>DBConnectionDialog.cs</DependentUpon>
     </EmbeddedResource>
