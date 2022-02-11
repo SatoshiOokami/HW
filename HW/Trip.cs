@@ -2,6 +2,9 @@
 
 namespace HW
 {
+    /// <summary>
+    /// Class for getting database data 
+    /// </summary>
     public class Trip
     {
         public int TripID { get; set; }
@@ -11,5 +14,8 @@ namespace HW
         public DateTime FromDate { get; set; }
         public DateTime ToDate { get; set; }
         public DateTime RecordDate { get; set; }
+
+        //TODO: 
+        //Status - finished/planned/current
     }
 }

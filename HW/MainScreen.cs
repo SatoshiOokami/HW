@@ -150,6 +150,8 @@ namespace HW
                 using (var connection = new SqlConnection(ConnectionString))
                 {
                     connection.Open();
+                    //TODO: 
+                    //Include status in the table schema
                     var query = $"INSERT INTO Trip (Employee, Purpose, Destination, FromDate, ToDate, RecordDate)" +
                                 $"VALUES (@emp, @purp, @dest, @from, @to, @record)";
                     var cmd = new SqlCommand(query, connection);
@@ -198,6 +200,8 @@ namespace HW
                                 FromDate = !reader.IsDBNull(reader.GetOrdinal("FromDate")) ? DateTime.Parse(reader["FromDate"].ToString()) : new DateTime(1900, 1, 1),
                                 ToDate = !reader.IsDBNull(reader.GetOrdinal("ToDate")) ? DateTime.Parse(reader["ToDate"].ToString()) : new DateTime(1900, 1, 1),
                                 RecordDate = !reader.IsDBNull(reader.GetOrdinal("RecordDate")) ? DateTime.Parse(reader["RecordDate"].ToString()) : new DateTime(1900, 1, 1),
+                                //TODO: 
+                                //Include status
                             });
                         }
                     }

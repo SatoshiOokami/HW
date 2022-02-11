@@ -20,6 +20,14 @@ namespace HW
             DBConnection.DBUser = tbDBUser.Text;
             DBConnection.DBPass = tbDBPsw.Text;
             DBConnection.IntegratedSecurity = cbIS.Checked;
+
+            SaveDatabaseConnection();
+        }
+
+        private void SaveDatabaseConnection()
+        {
+            //TODO: 
+            //registry or file
         }
     }
 }
