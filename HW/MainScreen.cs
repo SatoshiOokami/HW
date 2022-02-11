@@ -191,7 +191,7 @@ namespace HW
                         {
                             trips.Add(new Trip
                             {
-                                TripID = reader["ID"] != null ? int.Parse(reader["ID"].ToString()) : -1,
+                                TripID = !reader.IsDBNull(reader.GetOrdinal("ID")) ? int.Parse(reader["ID"].ToString()) : -1,
                                 Employee = reader["Employee"]?.ToString(),
                                 Purpose = reader["Purpose"]?.ToString(),
                                 Destination = reader["Destination"]?.ToString(),
