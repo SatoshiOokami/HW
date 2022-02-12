@@ -7,6 +7,8 @@ using System.Windows.Forms;
 
 namespace HW
 {
+    //TODO: 
+    //Designer - autocompletes for textboxes, remembering the previously entered values 
     public partial class MainScreen : Form
     {
         public DBConnection DBConn { get; set; }

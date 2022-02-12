@@ -139,6 +139,8 @@
             // 
             this.dataGridViewTrips.AllowUserToAddRows = false;
             this.dataGridViewTrips.AllowUserToDeleteRows = false;
+            this.dataGridViewTrips.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewTrips.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTrips.Location = new System.Drawing.Point(7, 7);
             this.dataGridViewTrips.Name = "dataGridViewTrips";
@@ -149,6 +151,8 @@
             // 
             // btnShowAll
             // 
+            this.btnShowAll.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShowAll.Location = new System.Drawing.Point(81, 247);
             this.btnShowAll.Name = "btnShowAll";
             this.btnShowAll.Size = new System.Drawing.Size(145, 23);
@@ -181,6 +185,8 @@
             // 
             // toDate
             // 
+            this.toDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.toDate.Location = new System.Drawing.Point(8, 197);
             this.toDate.Name = "toDate";
             this.toDate.Size = new System.Drawing.Size(301, 20);
@@ -197,6 +203,8 @@
             // 
             // fromDate
             // 
+            this.fromDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.fromDate.Location = new System.Drawing.Point(8, 158);
             this.fromDate.Name = "fromDate";
             this.fromDate.Size = new System.Drawing.Size(301, 20);
@@ -213,6 +221,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Location = new System.Drawing.Point(234, 236);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
@@ -233,6 +242,8 @@
             // 
             // tbDestination
             // 
+            this.tbDestination.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDestination.Location = new System.Drawing.Point(8, 119);
             this.tbDestination.Name = "tbDestination";
             this.tbDestination.Size = new System.Drawing.Size(301, 20);
@@ -249,6 +260,8 @@
             // 
             // tbPurpose
             // 
+            this.tbPurpose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbPurpose.Location = new System.Drawing.Point(8, 80);
             this.tbPurpose.Name = "tbPurpose";
             this.tbPurpose.Size = new System.Drawing.Size(301, 20);
@@ -265,6 +278,8 @@
             // 
             // tbName
             // 
+            this.tbName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbName.Location = new System.Drawing.Point(8, 41);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(301, 20);
@@ -281,6 +296,8 @@
             // 
             // tabControl
             // 
+            this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl.Controls.Add(this.tabCreate);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Location = new System.Drawing.Point(0, 27);
